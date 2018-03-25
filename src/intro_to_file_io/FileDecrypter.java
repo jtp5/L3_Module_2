@@ -31,16 +31,10 @@ public class FileDecrypter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		int track = 0;
-		for (int i = 0; i < message.length(); i++) {
-			if (message.charAt(i) == ' ') {
-				track++;
-			}
-		}
+		String[] s = message.split(" ");
 		int place = 0;
-		for (int i = 0; i < track; i++) {
-			charList.add((char) (Integer.parseInt(message.substring(place, message.indexOf(' ', place))) - 10));
-			place = message.substring(place, message.indexOf(' ', place)).length() + 2;
+		for (int i = 0; i < s.length; i++) {
+			charList.add((char) (Integer.parseInt(s[i]) - 10));
 		}
 		for (char c : charList) {
 			System.out.print(c);
